@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b16">
+
+<title>120 FPS BOOSTER</title>
+
+<style>
+:root {
+    --bg: #080b16;
+    --card: #11182a;
+    --green: #00ffc3;
+    --blue: #00aaff;
+    --text: #ffffff;
+    --muted: #9ba8c7;
+    --border: #25334c;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+header {
+    padding: 25px 15px;
+    text-align: center;
+    background: linear-gradient(135deg, #10243c, #080b16);
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: 900;
+    color: var(--green);
+    text-shadow: 0 0 18px #00ffc355;
+}
+
+header p {
+    color: var(--muted);
+    margin-top: 9px;
+    font-size: 13px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 18px 14px 35px;
+}
+
+.hero {
+    background: linear-gradient(145deg, #14263e, #101426);
+    border: 1px solid #25415c;
+    border-radius: 20px;
+    padding: 25px 18px;
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--muted);
+}
+
+.fps {
+    font-size: 64px;
+    font-weight: 900;
+    color: var(--green);
+    text-shadow: 0 0 25px #00ffc344;
+    margin-top: 16px;
+}
+
+.fps-label {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 15px;
+}
+
+.card h2 {
+    font-size: 17px;
+    margin-bottom: 15px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid #263149;
+    font-size: 13px;
+}
+
+.info-row:last-child {
+    border-bottom: none;
+}
+
+.info-row span {
+    color: var(--muted);
+}
+
+.info-row strong {
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+button, select {
+    width: 100%;
+    padding: 15px;
+    border-radius: 11px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+button {
+    border: none;
+    background: var(--green);
+    color: #06110f;
+    cursor: pointer;
+    transition: transform .15s;
+}
+
+button:active {
+    transform: scale(.98);
+}
+
+button.secondary {
+    margin-top: 10px;
+    background: #19263d;
+    border: 1px solid #344661;
+    color: white;
+}
+
+button.blue {
+    background: var(--blue);
+    color: #06111b;
+}
+
+select {
+    background: #17243b;
+    color: white;
+    border: 1px solid #30415e;
+    margin: 12px 0;
+}
+
+.status {
+    padding: 12px;
+    background: #091e20;
+    border: 1px solid #155348;
+    border-radius: 10px;
+    color: var(--green);
+    font-size: 12px;
+    line-height: 1.7;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+    margin-top: 13px;
+}
+
+.note {
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--muted);
+    margin-top: 12px;
+}
+
+footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.8;
+    padding: 20px 10px;
+}
+
+@media (max-width: 360px) {
+    .logo {
+        font-size: 23px;
+    }
+
+    .hero h1 {
+        font-size: 20px;
+    }
+
+    .fps {
+        font-size: 55px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">⚡ 120 FPS BOOSTER</div>
+    <p>Desempenho gamer • Sem anúncios</p>
+</header>
+
+<main class="container">
+
+    <section class="hero">
+        <h1>PREPARA-TE PARA JOGAR</h1>
+
+        <p>
+            Abre o teu jogo rapidamente e consulta recomendações
+            para melhorar a experiência no teu telefone.
+        </p>
+
+        <div class="fps">120</div>
+
+        <div class="fps-label">
+            FPS pretendidos — não são FPS medidos
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>📱 Dispositivo</h2>
+
+        <div class="info-row">
+            <span>Sistema</span>
+            <strong id="system">A verificar...</strong>
+        </div>
+
+        <div class="info-row">
+            <span>Navegador</span>
+            <strong id="browser">A verificar...</strong>
+        </div>
+
+        <div class="info-row">
+            <span>Resolução do ecrã</span>
+            <strong id="screen">A verificar...</strong>
+        </div>
+
+        <div class="info-row">
+            <span>Taxa de atualização</span>
+            <strong id="refresh">Não disponível</strong>
+        </div>
+
+        <div class="info-row">
+            <span>Ligação</span>
+            <strong id="connection">A verificar...</strong>
+        </div>
+
+        <p class="note">
+            Os dados disponíveis no navegador não permitem medir
+            os FPS reais do Free Fire nem identificar todas as
+            capacidades do hardware.
+        </p>
+    </section>
+
+    <section class="card">
+        <h2>🎮 Abrir Free Fire</h2>
+
+        <button id="openGame">
+            🚀 ABRIR FREE FIRE DIRETAMENTE
+        </button>
+
+        <div id="gameStatus" class="status" aria-live="polite">
+            Pronto para abrir o jogo instalado.
+        </div>
+
+        <p class="note">
+            A abertura depende do Android, do navegador e da versão
+            instalada. Se não funcionar, abre o jogo manualmente.
+            Não será aberta uma página web como alternativa.
+        </p>
+    </section>
+
+    <section class="card">
+        <h2>⚡ Recomendações de desempenho</h2>
+
+        <label for="mode" class="note">
+            Escolhe um modo:
+        </label>
+
+        <select id="mode">
+            <option value="balanced">Equilibrado</option>
+            <option value="performance">Prioridade ao desempenho</option>
+            <option value="battery">Poupar bateria</option>
+        </select>
+
+        <button id="applyMode">
+            APLICAR RECOMENDAÇÕES
+        </button>
+
+        <div id="modeStatus" class="status" aria-live="polite">
+            Seleciona um modo para consultar as recomendações.
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>🔄 Sincronização e preparação</h2>
+
+        <button id="prepare" class="blue">
+            PREPARAR PARA JOGAR
+        </button>
+
+        <div id="prepareStatus" class="status" aria-live="polite">
+            Ainda não iniciaste a preparação.
+        </div>
+
+        <p class="note">
+            A preparação apresenta uma lista de verificações.
+            Não altera automaticamente as definições protegidas
+            do Android nem as definições internas do jogo.
+        </p>
+    </section>
+
+    <section class="card">
+        <h2>🔒 Segurança</h2>
+
+        <div class="info-row">
+            <span>Publicidade</span>
+            <strong>Desativada</strong>
+        </div>
+
+        <div class="info-row">
+            <span>Palavras-passe</span>
+            <strong>Não solicitadas</strong>
+        </div>
+
+        <div class="info-row">
+            <span>Modificação do jogo</span>
+            <strong>Nenhuma</strong>
+        </div>
+
+        <p class="note">
+            Esta aplicação não utiliza cheats, não modifica os
+            ficheiros do Free Fire e não solicita credenciais.
+        </p>
+    </section>
+
+</main>
+
+<footer>
+    120 FPS BOOSTER © 2026<br>
+    Projeto independente • Sem anúncios
+</footer>
+
+<script>
+"use strict";
+
+const $ = id => document.getElementById(id);
+
+// Identificação básica do dispositivo.
+function detectDevice() {
+    const ua = navigator.userAgent;
+
+    $("system").textContent =
+        /Android/i.test(ua) ? "Android" :
+        /iPhone|iPad/i.test(ua) ? "iOS" :
+        "Outro sistema";
+
+    $("browser").textContent =
+        /Edg/i.test(ua) ? "Microsoft Edge" :
+        /Chrome/i.test(ua) ? "Chrome" :
+        /Firefox/i.test(ua) ? "Firefox" :
+        /Safari/i.test(ua) ? "Safari" :
+        "Outro navegador";
+
+    $("screen").textContent =
+        screen.width + " × " + screen.height;
+
+    $("refresh").textContent =
+        "Não pode ser medida com fiabilidade";
+
+    if (navigator.connection) {
+        $("connection").textContent =
+            navigator.connection.effectiveType ||
+            "Ligação detetada";
+    } else {
+        $("connection").textContent =
+            navigator.onLine ? "Ligado" : "Desligado";
+    }
+}
+
+detectDevice();
+
+window.addEventListener("online", detectDevice);
+window.addEventListener("offline", detectDevice);
+
+// Abre o Free Fire instalado sem redirecionar para um site.
+function openFreeFire() {
+    const status = $("gameStatus");
+
+    if (!/Android/i.test(navigator.userAgent)) {
+        status.textContent =
+            "Esta função requer um dispositivo Android.";
+        return;
+    }
+
+    status.textContent = "A tentar abrir o Free Fire...";
+
+    const intent =
+        "intent://launch#Intent;" +
+        "package=com.dts.freefireth;" +
+        "action=android.intent.action.MAIN;" +
+        "category=android.intent.category.LAUNCHER;" +
+        "end";
+
+    window.location.href = intent;
+
+    setTimeout(() => {
+        status.textContent =
+            "Se o jogo não abriu, confirma se tens a versão " +
+            "global instalada e tenta novamente.";
+    }, 2500);
+}
+
+$("openGame").addEventListener("click", openFreeFire);
+
+// Apresenta recomendações seguras.
+function applyMode() {
+    const mode = $("mode").value;
+
+    const recommendations = {
+        balanced:
+            "MODO EQUILIBRADO\n\n" +
+            "1. Fecha aplicações desnecessárias.\n" +
+            "2. Mantém espaço livre no armazenamento.\n" +
+            "3. Utiliza definições gráficas estáveis.",
+
+        performance:
+            "PRIORIDADE AO DESEMPENHO\n\n" +
+            "1. Ativa o modo de jogo do telefone, se disponível.\n" +
+            "2. Fecha aplicações que não estás a utilizar.\n" +
+            "3. Usa apenas taxas de atualização suportadas.\n" +
+            "4. Reduz os gráficos no jogo se houver travamentos.",
+
+        battery:
+            "POUPAR BATERIA\n\n" +
+            "1. Reduz o brilho quando necessário.\n" +
+            "2. Desativa funcionalidades que não utilizas.\n" +
+            "3. Evita jogar quando o telefone está muito quente."
+    };
+
+    $("modeStatus").textContent = recommendations[mode];
+}
+
+$("applyMode").addEventListener("click", applyMode);
+
+// Lista de preparação antes de jogar.
+function preparePhone() {
+    const tasks = [
+        "Verifica se a bateria é suficiente.",
+        "Fecha aplicações que não estás a utilizar.",
+        "Confirma se a ligação à Internet está estável.",
+        "Evita o sobreaquecimento do telefone.",
+        "Ativa o modo de jogo do sistema, se disponível."
+    ];
+
+    $("prepareStatus").textContent =
+        "LISTA DE PREPARAÇÃO\n\n" +
+        tasks.map((task, index) =>
+            (index + 1) + ". " + task
+        ).join("\n") +
+        "\n\nPreparação concluída. Estas verificações " +
+        "não alteram automaticamente as definições do sistema.";
+}
+
+$("prepare").addEventListener("click", preparePhone);
+</script>
+
+</body>
+</html>
